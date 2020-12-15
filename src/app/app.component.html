@@ -1,0 +1,39 @@
+<!-- tabla de animas -->
+<div class="container-fluid bg-dark text-white text-center">
+    <h1> Tabla de animales</h1>
+    <button (click)="mostrar= !mostrar" class="btn btn-primary mb-3">{{mostrar ? 'Ocultar': 'Mostrar'}}</button>
+
+    <div *ngIf="mostrar" class="container-fluid">
+        <table class=" table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col ">#</th>
+                    <th scope="col ">Id legal:</th>
+                    <th scope="col ">Fecha de nacimiento:</th>
+                    <th scope="col ">Genero:</th>
+                    <th scope="col ">Sexo:</th>
+                    <th scope="col ">Nombre:</th>
+                    <th scope="col ">Creado en:</th>
+                    <th scope="col ">Actualizado en:</th>
+                    <th scope="col ">Tiempo:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let anima of listaAnimales; index as i">
+                    <th scope="row ">{{i+1}}</th>
+                    <td>{{anima._id_legal}}</td>
+                    <td>{{anima.date_birth}}</td>
+                    <td>{{anima.genus}}</td>
+                    <td>{{anima.sex}}</td>
+                    <td>{{anima.name}}</td>
+                    <td>{{anima.createdAt}}</td>
+                    <td>{{anima.updatedAt}}</td>
+                    <td>{{anima.age.text}}</td>
+                    <td>{{anima.age.value}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
