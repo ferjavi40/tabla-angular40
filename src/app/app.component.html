@@ -1,5 +1,5 @@
 <!-- tabla de animas -->
-<div class="container-fluid bg-dark text-white text-center">
+<div class="container-fluid bg-dark text-white text-center mb-5">
     <h1> Tabla de animales</h1>
     <button (click)="mostrar= !mostrar" class="btn btn-primary mb-3">{{mostrar ? 'Ocultar': 'Mostrar'}}</button>
 
@@ -19,7 +19,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let anima of listaAnimales; index as i">
+                <tr
+                    *ngFor="let anima of listaAnimales | paginate: { itemsPerPage: 10, currentPage: page }; index as i ">
                     <th scope="row ">{{i+1}}</th>
                     <td>{{anima._id_legal}}</td>
                     <td>{{anima.date_birth}}</td>
@@ -34,7 +35,9 @@
 
             </tbody>
         </table>
-
+        <pagination-controls (pageChange)="page = $event" maxSize="5" directionLinks="true" autoHide="true"
+            responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+        </pagination-controls>
     </div>
 </div>
 

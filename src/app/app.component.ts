@@ -11,6 +11,7 @@ import animales from './_animales/animals.json';
 })
 export class AppComponent {
   title = 'proyectoVista';
+  page:number=1;
 
 
   listaAnimales:{
