@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 
 //consumir json
 import animales from './_animales/animals.json';
+import  personas  from './personas/persons.json';
+
 
 @Component({
   selector: 'app-root',
@@ -25,7 +27,23 @@ export class AppComponent {
     age: any
   }[]=animales;
   
+  //lista de personas
 
-mostrar:boolean=false;
+  listaPersonas:{
+    userId:number,
+    firstName:string,
+    lastName:string,
+    phoneNumber:string,
+    emailAddress:string
+  }[]=personas;
+
+  constructor(){
+    
+  }
+
+ 
+  mostrar:boolean=false;
+
+  mostrar2:boolean=false;
  
 }

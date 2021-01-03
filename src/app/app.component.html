@@ -42,4 +42,40 @@
 </div>
 
 
+<div class="container-fluid bg-dark text-white text-center mb-5">
+    <h1> Tabla de personas</h1>
+    <button (click)="mostrar2= !mostrar2" class="btn btn-primary mb-3">{{mostrar2 ? 'Ocultar': 'Mostrar'}}</button>
+
+    <div *ngIf="mostrar2" class="container-fluid">
+        <table class=" table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col ">#</th>
+                    <th scope="col ">Id Usuario:</th>
+                    <th scope="col ">Primer nombre:</th>
+                    <th scope="col ">Apellido:</th>
+                    <th scope="col ">Numero de telefono:</th>
+                    <th scope="col ">Email:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let persona of listaPersonas | paginate: { itemsPerPage: 5, currentPage: page }; index as i ">
+                    <th scope="row ">{{i+1}}</th>
+                    <td>{{persona.userId}}</td>
+                    <td>{{persona.firstName}}</td>
+                    <td>{{persona.lastName}}</td>
+                    <td>{{persona.phoneNumber}}</td>
+                    <td>{{persona.emailAddress}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="page = $event" maxSize="5" directionLinks="true" autoHide="true"
+            responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+        </pagination-controls>
+    </div>
+</div>
+
+
 <app-footer></app-footer>
